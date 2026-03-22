@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        int n=0;
+        for ( int i =0; i<nums.size();i++){
+            if (nums[i]>nums[(i+1)% nums.size()]){
+                n ++;
+
+            }
+        }
+        if ( n >1){/////////////y check krr eh h rotated array h kya agr 1 break hoga too or 0 break hoga too alreafdy sored hog a 
+            return false ;
+        }
+        return true ;
+    }
+};
