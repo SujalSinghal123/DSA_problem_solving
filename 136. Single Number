@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+
+        // int ans =0;
+        // for ( int i=0;i<nums.size();i++){
+        //     ans ^=nums[i];
+
+        // }
+
+
+
+
+        // sort(nums.begin(), nums.end());
+        
+        // for (int i = 0; i < nums.size(); i += 2) {
+        //     if (i == nums.size() - 1 || nums[i] != nums[i + 1]) {
+        //         return nums[i];
+        //     }
+        // }
+        // return -1;
+        // return ans ;
+
+
+
+        map<int,int>mp;
+        for ( int i=0;i<nums.size();i++){
+            mp[nums[i]]++;
+        }
+
+        for ( pair<int,int> it:mp){
+            if (it.second==1){///////////second use hota h count krne kk liye 
+                return it.first; //// first number k liye kons anumber h 
+            }
+        }
+
+        return -1;
+    }
+};
