@@ -1,0 +1,43 @@
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> ans;
+
+        for (int i =0; i <numRows; i++) {
+            vector<int> row(i+1, 1);  // every row starts and ends with 1
+
+            for (int j = 1; j < i; j++) {
+                row[j] = ans[i-1][j - 1] + ans[i-1][j];
+            }
+
+            ans.push_back(row);
+        }
+
+        return ans;
+
+        // vector<vector<int>> a;
+        // int n=numRows;
+        // for(int i=0;i<n;i++){
+        //     a.push_back(vector<int>(i+1,1));
+        //     for(int j=1;j<i;j++) a[i][j]=a[i-1][j-1]+a[i-1][j];
+        // }
+        // return a; 
+
+
+        vector < vector <int>> ansu ;
+        int n=numRows;
+        for ( int i=1;i<=n;i++){
+            vector < int > ans;
+            int a=1;
+            ans.push_back(1);
+            for ( int col=1;col<i ;col++){
+                a= a *(i-col);
+                a =a/col;
+                ans.push_back(a);
+            }
+            // return ans ; 
+            ansu.push_back(ans);
+        }
+        return ansu;
+    }
+};
