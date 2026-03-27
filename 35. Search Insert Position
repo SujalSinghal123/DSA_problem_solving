@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        // is wale question ko lower bound trike se krnege 
+
+        // int ans = lower_bound(nums.begin(),nums.end(),target )-nums.begin();
+        // return ans ;
+
+        //is wale method ko only contest ya fast solve krne k liye use krnege 
+
+
+        //ab lower bound ka code likho wahi iska answer hoga 
+        //lower bound mtlb ------smallest number >=target ;
+        //upper bound mtlb ------smallest number > target ;//isme equal ka sign nhi hoga 
+        // or largest number <=target ;
+        int i=0,j=nums.size()-1;
+        // int ans =1;
+        while (i<=j){
+            int mid =(i+j )/2  ;//i+(j-i)/2
+            if ( nums[mid] ==target ){
+                return mid ;
+            }
+            else if ( nums[mid ]>target ){
+                j=mid-1;
+            }
+            else {
+                i=mid+1;
+            }
+        }
+        return i;
+    }
+};
