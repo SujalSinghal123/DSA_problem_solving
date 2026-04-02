@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int l=0,r=nums.size()-1;
+        // int ans =INT_MAX;
+        // while ( i<=j){
+        //     int mid=(i+j)/2;
+        //     if ( nums[i]<nums[j]){
+        //         ans =min(ans , nums[i]);
+        //         break;
+        //     }
+        
+        //     if ( nums[i]<=nums[mid]){
+
+        //         ans= min( ans ,nums[i]) ;
+        //         i=mid+1;
+        //     }
+        //     else {
+        //     j=mid-1;
+        //     ans = min( ans, nums[mid]);
+        //     }
+        // }
+        // return ans  ;
+
+
+
+//// second ,,method 
+        while (l < r) {
+    int m = (l + r) / 2;
+    if (nums[m] > nums[r]) l=m+1;
+    else r=m;
+}
+return nums[l];
+    }
+};
